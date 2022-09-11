@@ -1,0 +1,393 @@
+<doc>
+    <assembly>
+        <name>Xamarin.Forms.Xaml</name>
+    </assembly>
+    <members>
+        <member name="T:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Items">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Type">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Converter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.ConverterParameter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.FallbackValue">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Mode">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Path">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Source">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.StringFormat">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TargetNullValue">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TypedBinding">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.UpdateSourceEventName">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#BindingBase}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="C:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.ProvideValue(System.IServiceProvider)" />
+        <member name="P:Xamarin.Forms.Xaml.DataTemplateExtension.TypeName" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)" />
+        <member name="T:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>Interno.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.DynamicResourceExtension.Key">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#Internals#DynamicResource}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Extensions">
+            <summary>Clase de extensi√≥n para el <see cref="T:Xamarin.Forms.View" /> que define el m√©todo <see cref="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)" />.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)">
+            <typeparam name="TXaml">El tipo de vista para inicializar con el estado de XAML.</typeparam>
+            <param name="view">Vista en la que funciona este m√©todo.</param>
+            <param name="xaml">XAML que codifica el estado de vista.</param>
+            <summary>Devuelve una vista inicializada al cargar el <paramref name="xaml" /> especificado.</summary>
+            <returns>Vista inicializada.</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.Type)">
+            <typeparam name="TXaml">El tipo de vista para inicializar con el estado de XAML.</typeparam>
+            <param name="view">Vista en la que funciona este m√©todo.</param>
+            <param name="callingType">Tipo de autor de llamada.</param>
+            <summary>Devuelve un <paramref name="TXaml" /> con las propiedades que se definen en el manifiesto de aplicaci√≥n para <paramref name="callingType" />.</summary>
+            <returns>
+                <paramref name="TXaml" /> con las propiedades que se definen en el manifiesto de aplicaci√≥n para <paramref name="callingType" />.</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.NullExtension">
+            <summary>Clase de extensi√≥n que distingue entre valores null y cadenas vac√≠as.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.NullExtension">
+            <summary>Crea un objeto <see cref="T:Xamarin.Forms.Xaml.NullExtension" /> con valores predeterminados.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.NullExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Devuelve el objeto null.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Converter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.ConverterParameter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Default">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Desktop">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Phone">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnIdiomExtension.ProvideValue(System.IServiceProvider)">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Tablet">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.TV">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Watch">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Android">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Converter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.ConverterParameter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Default">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.GTK">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.iOS">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.macOS">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnPlatformExtension.ProvideValue(System.IServiceProvider)">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Tizen">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.UWP">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.WPF">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>Extensi√≥n de marcado para hacer referencia a otros tipos definidos por XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>Crea un <see cref="T:Xamarin.Forms.Xaml.ReferenceExtension" /> con valores predeterminados.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ReferenceExtension.Name">
+            <summary>Obtiene o establece el nombre de la entidad a la que se va a hacer referencia.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ReferenceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Devuelve un objeto que representa el tipo al que se ha hecho referencia.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>Extensi√≥n de marcado que obtiene un valor de miembro est√°tico.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>Crea un objeto <see cref="T:Xamarin.Forms.Xaml.StaticExtension" /> con los valores predeterminados.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticExtension.Member">
+            <summary>Obtiene o establece el nombre del miembro.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Devuelve el valor del miembro.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticResourceExtension.Key">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Source">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+            <value>Para uso interno de la infraestructura XAML.</value>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Style">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+            <value>Para uso interno de la infraestructura XAML.</value>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StyleSheetExtension.Xamarin#Forms#Xaml#IValueProvider#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">Para uso interno de la infraestructura XAML.</param>
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+            <returns>Para uso interno de la infraestructura XAML.</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Converter">
+            <summary>Para uso interno de la infraestructura XAML.</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.ConverterParameter">
+            <summary>Para uso interno de la infraesTructura XAML*</suemasy>
+0   0  <Ìember>-
+$  $ "  meeber`name="Q:Xalarin.ForMs.XamlÆTemplateBiodinoAxt%nSion.Mmde">
+     "      <summaRy>Pqra`u{/ interno dÂ la Ènfraestrucvure XAML&</summary.-
+      ` </mdmber>
+    `  0<mdmfdr namd¢P:Xqmarin.FormcnXaÏl.TemplateBindingGXÙdnSion.P!thr>
+$("!      ! <summaÚy6Pgza usn inturjo!dE ha yfbraestrqbuura ÿAMD.</s}mmavy:
+        </mÂmrEr>   † †  <lember n`me="PXaicrin.F.rms.Xaml.TimplaÙeBIndifgExtenqi*.tringFor-at"æ
+     (†  (" <ruM,ary˙Par` usO jjpezfo de la in&rc%{tructure XAML.</s=|mery
+(!! $ ( </memrer>
+  `(    <meobeb nameΩ"M:XamabIn.Forms.xaml&UelplatGBindingExtensykl.Xamari.#Forms3XaM¸#IMarkuuExt‰ncion#Provid%Value(Syste}.IServacePro~ider-">J  $ †       <0·ram nqie="cervicgPzovider">Pa2a %so in4%Úno de la`i~fraesqÚuctura XAML><aram>
+          !<3}˝mar˘>Raza eso$intepno de`ha i~Fraustrucvur· XAML.</summarY>-J  †   0 4/membdr
+"   $   <Mem"eR†name="M:XAmari..Fozis.xaml>TemplapeF)ndÈngEZtefsion.X!maÚin#∆orMs#Xaml#IE!zkqhExtenshon{XAmasin#Forms#Bindan'Base}"ProvineVa|t(y3tem.ISuÚviseProvider)">
+&  h   !   (<param‡nam%="seRvicePÛ?vi`er">ara |so )nterno te la$ioFraestru#turc XAÕL.>-p!ram>ä      !  (  <summary>Para u3o a~terno(de ma(anfraestrıctura X¡ML.<´sımmaRy>
+  8†    </membgr<
+   0   $<meeber name="T:Xamarin.N_rms.Xqml.PypeExuension"~â
+  `$ 0 `    <sulmary>Para uso†intepÓo de l· iNfrqestrucTura XAÕL.<ØsvmmaRy>Ö
+    0  !4/member
+ (      <member†name="C:Xamarin.Foris.Xaml.TypeExpensIon>
+         †  <suliarx>Par! uso†ÈNteroÔ `e ha inÊraestructura HQLH.</summary>  8     <meOber>
+        <member ~cme"L:XamaRin.Forls>Z!mo.T9pdExtension.ProˆideValuu(ystem.HSezvibgP~mvidur)">ç
+        !   <param†nameΩbservicePrevi‰er">Par! usÔ knuerno de l` infraestructera ZA]H&</param~
+   4        <sum}arÈ>PArc u{o intarno de lh ioFraEspzuatwza(XAMN.</suOmary>
+       `</m%mber>ç
+    ` ° <meMbes nqm%=#–:Xamarin.fÔrms.XamÏ.T{reExtensio~.TypeNaÔe <
+  "       " {ımoarxPera uso in‰Ârno de la infraestructura XA]LÆ</{qmmavy>
+        </member>
+      ` <mmmbev name="M:Xamarin>Nor}sXaolTypeExtensionÆXalarin#FÈp}s#Xamd#IMaRkupUxtension#Pro~ileValue(Syst%m.ISÂrviceXrovi$eR)"†    † ¶  " <para} name="ÛarviceProviddr">Papi uso inuerno de`la infraestr}ctura XALL.</parcm>    "       4sımmary>Par· uso knterno ‰e"la infraesvructura`XEMÃ.<>Summary>
+  0`    </member>	
+ †  `  0<membep namE}"T:XamaÚin.Fm&ms.Xaml.ÿamlColpilathonAttrhcute2~
+°         0 <sumMmry6Auribut/ que contpola$si el XAML se cmmpi®er√° Un tiempo de aompilabi√≥n m gn tiÂm8o te EHdswai√≥o.</summaryæO
+        </mÂ-ber>
+       !<member nime9"C>XaMabin.Fop}s.Xam(&X·mlCompi,adionAturi"ute(Xslaryn.Forls.XaÌl.XaolcÔmpilaÙionptiony)">   †     $  <param name="pamlCompimationNptiols">Valor que indica sc se debe compilar ÿA]L en |i-m0o de ejecu#i√ìn`g en ıiempo de comp)laci√≥n.,/param>
+      # ` † 8summaRy>Crea un <See"creÊ="t8Xamarin.Forms.Xaml.XamlColpil¡tionAttrib5‘a" /> con0el®valÔr especinicado.º/summary
+       0<omdmber>
+ ` $   0~membeb name="–zXamain.Fmr}samlÆXamlComilationAttribTte.XamlompilciofOptions >
+ †  †  "    <summary?œbtiene o g{tabLecÂ un ~alov que hndmca si¢se debe coÌpil·r XAmL(en 4ae}po de eÍecuci√≥n m dn†tiempo†$e coopylaCi√≥/.</summary7
+  b    †</lee`%z>	
+   (    <meiber name=¢T:Zimarin.NgrmÛ.Xaml.XqmlCoMpiÌationOppinns">*( !         (semmAry>Enuoera los valores`que contro|An cu√ÅnDo PAML se`compkla en IL.</sumÌazy>
+     $  </-embdr>
+(      "<member nqme="G:xAmqrin.FoÚos.XaolnXa-lC/m¯ilationOptions.Kompyle&>ç
+   0      † <s}mÌary>CompiTa"el XAML de l! gÏas' o del,pvoyecto cuando la apÏibcci√≥n se compila&</qummqry>
+  $    "</member>
+    ( $ <member lame= F:X·marÈn.Forms.Xaml.XqmlCompilationOpt)ons&Skip">J0(       0  <suÌmaRy>AgipilA ul$XEML`ee la claSd o0deh proyecto kuando la alibeci√≥n se ejecuta en el dc{Pmwitiˆ~.</summary>
+        </membeÚ:        <member0nam%="T:Xamarin.Forms.Hamm.Xkml∆ilePathAÙıriBUte">
+   !      ( <sUmmary>Pa2a uso inte2fo de$‰a infvaestruct}ra XAML.<?su-mary<ç* (      </member>
+     8h <memer naÌ%="C:Xam`rin*Fovms.Xam,.XamlFilePathMttribute(SystÂm.SUrIng)">
+ $        ! <param"name="d)mePathbæPara uso†inter.o de da ilÊridstructura xaMO.</pqram6            >sı-mary>Para uso interno de Ïa†infbaesdructura XAMl.8/Sqmmary>
+0  †    <+member
+   `  " <lu}f%r naie=#T:Xamarmn.Forms.Xa}l*Internan3>NimeSKopeProviler">
+       ,    <summaRy>P·r· ’so inteRnO d% la xLa|Aforma de XamarinnForMs</s5Ìmary:
+    *   </membar>$(      >memfer name="S:Yamarin*∆orms.Haml.…ntez.ans.NaÕeScopeProviDar">* "`    †"   <sum}abq>Para uso intevno fe(la platq&orma dE amarin.Vorms.</3u}≠cry~
+        <'member>
+  `    †4member(name="P>XaearIn.∆krMsnXaml.I.ternalr.^ameSaopeProviter.Name[sope"*ç
+      8     8quMmAry>Para!5{o interno de la$platAnoRÌa dÂ(Xamarkn,Forms</sum-ary>J      ¢ <'muerer>
+  "     <memrer name<"T:XamaÚin*Norms.X·ml.Indernals.SkmpleVA|ueTaveeTProvider">
+  !  ¢    ! <sqm}ary>Para uso!internn de l· xnatafoRma dÂ Xsm!ryn.Forms>~/summa2y>
+  ` 0   </membe2>   *    <meiber namd=":T`Ìaran.Frms.Xaml.InteÚnalw.SimpleVÈhueTapgetPro~i‰er(Sx3Teo.Obja„4Z]!"?
+0        †  ,param Nama}"obÍeg|AndParants"?Para!5so interno de la plataf/r}a f] Xamari..Forms.<'Pqrae>
+            <summarq>Para$uso internO de la 4leTaforma de XamarÈ..Forms.4/summcry:Mä (0  0† </meL‚er>
+    †   |}ember name=#√:XamarinmDorms.Xame.In4e¬nshw,[i,pldValueTargetProv)‰erhs}s$em.Object[›,Sy3tÂm.Obbecp)¢>
+†          (8param ~ame="objectandP!rents">Para uso intern/ du la platAfoÚmi dÂ Xamabmn.Form{.</Ùaram>
+  ""        ∏pAram name="tabgÂtPpoperty">P·za uso ijÙeÚnO de *a plqtaForma`de Xcmarin>Forms.</param>
+    !      0<summary>parÒ uso intevlo!de la plataforma($e X!oaryn.Forms.4osumMaby>
+  †h    /member>
+  0     ºmember naÔe="c:XaiarinÓForms.ÿemn.In\ernals.SimPlÂ^alueP·pge|–rmv)d%r(SXStEM.Object[Y.Sy3|am.Object(XamarÈn.Borms.InternalsINameScop%)" />
+       $<membez name="M:Xamarin>Forms.Xsmm.InternalÛSimphealue‘argetProviDer.FindyName(SysteméStriNG-"
+    !  (    <summaryPara uÛo interno$eu la ingbagstructur` XALl.</sumMary<        >mumber>
+  (  †  <Meebev!Name="P:Xamiryn.Formr.Paml.IÓternals>SimpÌeVqlueTargÌtRpov)dgr.Xamaryn#Fovms#Xaml#I@rotmdeVcdueT`rget#TargetObject"
+†  "    $   <cummaÚy>@ari uco inıerno de lA `la\afgrma de \qm`rin.Forms.</s5mmary>
+      ( </melbÂr>Ç   !   a<aember nime}"P:\amari~.F/rms.Xaml&Inrernals.Simt,eñalqeTarggtProvkder.Xamarin#f_ros#Xaml#IProtideValueTargÂt+TargetPrmperty":-
+          0 <ru}mary:Para u[o intezno de ha0plataforma"`g`XamaRin.Forms.</semmAR9>
+    † ` </membeR>
+        <oe}ber n1me="T:Xamarin.Fnrms.Xaml.Inteznals$XaolLoaver">
+(    `      <wummary>Pari qso!anterno pe la platanOÚma da Xam!rin.FormS.</summar}>
+ 0! † ("</member>*        <meycer .ama="P:Pamarin.Formq.Xaml.Internals*XamlLÔcdeb.XamlFileXrovidwr">
+  !   ` 0"  <summarypara uÛn in|erno de la xlataforma$da Xamarin.Forms.</sum-ary>
+*       <-eelber6
+       <membep nA}a="TzXa…·rin.NoÚms.Xaml$Inderna|s.XamlSerVicePrkVi`er">ç
+ 0 ¢       0<semmaby>P¡ra uco int%rno de lc pnataforma dm Xamari.ForMs.<osummasy>
+    ` `!</meeber>† ( `   4mwmbeb na}e="CXa%·rin>Fovos.XailnYnTasncls&Xa}ÏSeÚviaeProrider >
+   0 " 0   (<selmar˘>Para uso ylterno"dÂ la pma|afrma†de Xam`zin.Fgrmw.</summary?J("   †  </Mmmjur?
+      "h<m%mceR name="]:XamERm>.Dorms*Xaml.InternaÏs.HamlServicuP2otiderAdd8System.Type,Syrtem,Objecd)">J`           <param name="ty`e">para usÔ$ifterng de Ï# plataÊorma de Xamarin.Forms.</paRam.
+ "     "    <paraÌ name="servyce">PaÚa uso inderno de lA plc4aborma du XamarIn.Foˆms.8/paRam>
+(  † (   † ¢<summAry>Para uso inuesoode la"plA4cforma dÂ0Xam`rin.For-c></summary>
+   (    </Me-bez>
+  †     4membap jqÌm="M:Xamarin.For-s.Xaoo.iÓternal{/XamlevmÛeProvider.Ge4óerVkgm*System.Tye)">
+          ` 4p·ram nqle=#servicEType">Pqr` }so intÂz.Ô de la pladifoÚma#$e Xsm¡rin.Fores/4/param>
+      † $   <Summary>PaRa0usoÄinternm fe`la&plataformc de ÿamazin.Forms.¨/suM}ary>
+!    "  </mdl‚er?
+  $     <m%mber name="VzXam!rin.Forms™Xaml.IftesnAls.XamlTypdZdsÔlve˙">
+  †       $ <wu)mary>Para uso iltar.o de Lc plataforMa0ee Xamavin.FormsÆ</sumÌ·b>
+  0  †  ,/meofer>
+      0 <eember ~amu="C:XaoaÚin.Forms.\aml.IlTurnals.XamlTypeRasoÏvar(System.Xmm/IXmlnamesp!ceResolveb,Qystem.Reflection.Assembly)">†  "  0     <paba- name="lamespaceRÂsolver"<–qr` uso ifterno de la rlatafÔr≠a`de Xamarin.Forms.</qiraM>
+ ††  `† "   <para- name="a}rrentAsse-bly">Pcra uso interno`de la pÏatafovma de Xamarin.Forms.</pavam>
+ ! †        <cum-ary>Pcra Eso interno d}0(A lataforma de$XaoarinForÌs.</Ûummazy>
+      " <Ø-ember>
+0   !   <member name="M:Xaiarin.Forms,Xamh.Inperjals.XamlTypeR'solzfr.Xamarin#Forms#XamL#IXaolTypeResoLver#ResolveSystem.StriFg,Syst%m.ISurvic%Prmvidgv)".    $       =param name="qualiFiefTypEFame"?Par` uco interno de Ïa plataforma de P·}arin.FobmÛ.</param>
+         `0<param`name="servi#%tr/vi`er">P·ra uwk interNo"de la"`,atabormi!de"X`marin.Dorocn,/param>*`  $     (  <summary>PaRa uso knte2No(de La plat·fgrma de Zimarij.Forms,0/sumoary>
+ 0     04/memBeÚ6
+       `<member(name="M:X·marin.Gorms.Xaml.IntebnalsÆXamlTypeResolver.Xama2yf£Frls#Xaml#IZamlTyPeRe3olvev‘ryVesolve(Wystem.Strijg,Syste}.Type)"6
+            <prai namd#qualifiedTypeN·me">–ara uso ifterno!de la pl!taforma de(XEmarinForms.</param>
+      (0    <summaryXara0tso indurno de La alatanorma de Xaoarin.Fopm{.</sumoary>
+!   0$  </member~-       0<eumber`name="TXamarin&Formsaml>Kntern·l{.XmlLineInfoProVider">
+   "!   (0 <s5mmaRy>Para†usÎ )n4drno de l· pnitaformc de XamariÓ,FoPmÛn/sumiary>-
+        4/meober:
+(       ºmember!n·me="C:ÿamarin.Forms.XamL.In4ernals&XmÏL)ngIÓfoProrieer(Systei.Xml.…mlLkne…nfo) >
+       (    <param name="xmlLinÂInfo">Pa2a uso interno de la pnatafo2mi de XamarIn.FoÚeÛ.</paRam>
+`"   $      >summary>PaRq uso interno!de lh tlataforma de Xamarin.∆OrÌs.<.summaby>
+    †   </membe“>
+ "    † <member .aMe-"P:XamarinnFormr.Xaml.Intarn!ls.Xml\ineIffoXpovifep.XmlLIneHnfo">
+        #  `<summary>P`ra uso†i.ter~m de la `dataforma de Xamarin.Forms.<'summarq?	
+†     ` <ooeMber:m
+        <membe~`naMe="T>Xamarin.Fkrm3.Xamm.Ifuernalq.XMlNamespaceResolvar"~J    $   !   <summari>Paba uqo inteRlo de la rlataforma dm XamarIn.Fores.</Su-m·ry>        </member.
+        :member name="C*Xamarin.Forms.Xall.InturnAls.YmnNamecpac%Resol~dr">M
+(  0      " <summari>Para(us hnterNo de da plataf.wm· de Xpmarin.FormS.</summar}>
+  4  a  </mambÂv>
+  $     <me}ber name="M:Xamari~,Fobms.Xamh.Internals,XmÏN°mespaceResolˆerÆAdd(Syrtel.[tring,SysTem,String)">ç
+     !     %<par!§ ncmd<bxreFix2Para†uso†)ntevnn0‰e La plitafÔrma de X·merin.Forms,</paral>
+  !         <papam name="ns*>PA2a uso interno de la platabozma dÂ0Xamarin.Frms.º/p¡ram>
+     ∞      <summaryæPara usÔ interno de da plata&oÚma ‰e"Xamarin.Forms.</summary>
+      ! </membgr>
+ 0$     <member0naMe}*M:Xamavij.Forms.Xaml.Knternclc.XmlNaoesp`ceResolverÆGetN`mes0acesMn[coe(System.Xml,XllJ·mespAceScoqe)"&  `      "† <r`ramhname="scope">Paba uso intErno de Ïa`p|atanmrma de†Xamarin.Forms.</param>
+ `      1   <stmmary>Para uro hnt%rno de†la plataforma de X`eario.Tosmw.</su}mary>
+  `    $</membe2>	
+!†      <member name<"M:Xcm·R)~.Fores.X!ml*Intepnams.XÌlN·mespakeResonvez.LookuPN`mespace(SyspeÌ.String)">
+† !  0      <param ncÌg="ppdfhX¢>Pqva uso intern/ de na plcpafo2ma de Xamarin.ForMs.</parAm.
+     $"  ($ <Sımmary>P!va uso iNturno dm ha 0latafo2me`td Xamarin.ForMs.<osumoary:
+ `      </mmmber>
+       "<member name="MXaoarin.Foris.Xaml.	nterÓalk.XmlNaÌespaceReÛolveV.LookupQvefip*S9stem$trÈng+"6
+      (     <param namÂ="famespaseName">Para uso in4erno d`"la plauaforma de†XamaRin.Form3.|/pabam>J        4  !<summary>Pqra uso interno de la platafor-A de Xamarin&FgÚms.</summ·ry>
+        </memrur>
+   `<-MembÂrs>
+</doc?-

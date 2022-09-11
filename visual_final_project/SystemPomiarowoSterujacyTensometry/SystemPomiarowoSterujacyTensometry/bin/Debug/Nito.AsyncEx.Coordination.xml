@@ -1,0 +1,1280 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nito.AsyncEx.Coordination</name>
+    </assembly>
+    <members>
+        <member name="T:Nito.AsyncEx.AsyncAutoResetEvent">
+            <summary>
+            An async-compatible auto-reset event.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncAutoResetEvent._queue">
+            <summary>
+            The queue of TCSs that other tasks are awaiting.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncAutoResetEvent._set">
+            <summary>
+            The current state of the event.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncAutoResetEvent._id">
+            <summary>
+            The semi-unique identifier for this instance. This is 0 if the id has not yet been created.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncAutoResetEvent._mutex">
+            <summary>
+            The object used for mutual exclusion.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.#ctor(System.Boolean,Nito.AsyncEx.IAsyncWaitQueue{System.Object})">
+            <summary>
+            Creates an async-compatible auto-reset event.
+            </summary>
+            <param name="set">Whether the auto-reset event is initially set or unset.</param>
+            <param name="queue">The wait queue used to manage waiters. This may be <c>null</c> to use a default (FIFO) queue.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.#ctor(System.Boolean)">
+            <summary>
+            Creates an async-compatible auto-reset event.
+            </summary>
+            <param name="set">Whether the auto-reset event is initially set or unset.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.#ctor">
+            <summary>
+            Creates an async-compatible auto-reset event that is initially unset.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncAutoResetEvent.Id">
+            <summary>
+            Gets a semi-unique identifier for this asynchronous auto-reset event.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncAutoResetEvent.IsSet">
+            <summary>
+            Whether this event is currently set. This member is seldom used; code using this member has a high possibility of race conditions.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.WaitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits for this event to be set. If the event is set, this method will auto-reset it and return immediately, even if the cancellation token is already signalled. If the wait is canceled, then it will not auto-reset this event.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.WaitAsync">
+            <summary>
+            Asynchronously waits for this event to be set. If the event is set, this method will auto-reset it and return immediately.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits for this event to be set. If the event is set, this method will auto-reset it and return immediately, even if the cancellation token is already signalled. If the wait is canceled, then it will not auto-reset this event. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.Wait">
+            <summary>
+            Synchronously waits for this event to be set. If the event is set, this method will auto-reset it and return immediately. This method may block the calling thread.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncAutoResetEvent.Set">
+            <summary>
+            Sets the event, atomically completing a task returned by <see cref="o:WaitAsync"/>. If the event is already set, this method does nothing.
+            </summary>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncCollection`1">
+            <summary>
+            An async-compatible producer/consumer collection.
+            </summary>
+            <typeparam name="T">The type of elements contained in the collection.</typeparam>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._collection">
+            <summary>
+            The underlying collection.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._maxCount">
+            <summary>
+            The maximum number of elements allowed in the collection.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._mutex">
+            <summary>
+            The mutual-exclusion lock protecting the collection.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._completedOrNotFull">
+            <summary>
+            A condition variable that is signalled when the collection is completed or not full.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._completedOrNotEmpty">
+            <summary>
+            A condition variable that is signalled when the collection is completed or not empty.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCollection`1._completed">
+            <summary>
+            Whether the collection has been marked completed for adding.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.#ctor(System.Collections.Concurrent.IProducerConsumerCollection{`0},System.Int32)">
+            <summary>
+            Creates a new async-compatible producer/consumer collection wrapping the specified collection and with a maximum element count.
+            </summary>
+            <param name="collection">The collection to wrap.</param>
+            <param name="maxCount">The maximum element count. This must be greater than zero.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.#ctor(System.Collections.Concurrent.IProducerConsumerCollection{`0})">
+            <summary>
+            Creates a new async-compatible producer/consumer collection wrapping the specified collection.
+            </summary>
+            <param name="collection">The collection to wrap.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new async-compatible producer/consumer collection with a maximum element count.
+            </summary>
+            <param name="maxCount">The maximum element count. This must be greater than zero.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.#ctor">
+            <summary>
+            Creates a new async-compatible producer/consumer collection.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncCollection`1.Empty">
+            <summary>
+            Whether the collection is empty.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncCollection`1.Full">
+            <summary>
+            Whether the collection is full.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.CompleteAdding">
+            <summary>
+            Synchronously marks the producer/consumer collection as complete for adding.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.DoAddAsync(`0,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Attempts to add an item.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the add operation.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Adds an item to the producer/consumer collection. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding or if the item was rejected by the underlying collection.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the add operation.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.Add(`0,System.Threading.CancellationToken)">
+            <summary>
+            Adds an item to the producer/consumer collection. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding or if the item was rejected by the underlying collection. This method may block the calling thread.
+            </summary>
+            <param name="item">The item to add.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the add operation.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.AddAsync(`0)">
+            <summary>
+            Adds an item to the producer/consumer collection. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding or if the item was rejected by the underlying collection.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.Add(`0)">
+            <summary>
+            Adds an item to the producer/consumer collection. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding or if the item was rejected by the underlying collection. This method may block the calling thread.
+            </summary>
+            <param name="item">The item to add.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.DoOutputAvailableAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Waits until an item is available to take. Returns <c>false</c> if the producer/consumer collection has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the wait.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.OutputAvailableAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits until an item is available to take. Returns <c>false</c> if the producer/consumer collection has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the asynchronous wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.OutputAvailableAsync">
+            <summary>
+            Asynchronously waits until an item is available to take. Returns <c>false</c> if the producer/consumer collection has completed adding and there are no more items.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.OutputAvailable(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits until an item is available to take. Returns <c>false</c> if the producer/consumer collection has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.OutputAvailable">
+            <summary>
+            Synchronously waits until an item is available to take. Returns <c>false</c> if the producer/consumer collection has completed adding and there are no more items.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.GetConsumingEnumerable(System.Threading.CancellationToken)">
+            <summary>
+            Provides a (synchronous) consuming enumerable for items in the producer/consumer collection.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the synchronous enumeration.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.GetConsumingEnumerable">
+            <summary>
+            Provides a (synchronous) consuming enumerable for items in the producer/consumer queue.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.DoTakeAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Attempts to take an item.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the take operation.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+            <exception cref="T:System.InvalidOperationException">The collection has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.TakeAsync(System.Threading.CancellationToken)">
+            <summary>
+            Takes an item from the producer/consumer collection. Returns the item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding and is empty, or if the take from the underlying collection failed.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the take operation.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.Take(System.Threading.CancellationToken)">
+            <summary>
+            Takes an item from the producer/consumer collection. Returns the item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding and is empty, or if the take from the underlying collection failed. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the take operation.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.TakeAsync">
+            <summary>
+            Takes an item from the producer/consumer collection. Returns the item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding and is empty, or if the take from the underlying collection failed.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCollection`1.Take">
+            <summary>
+            Takes an item from the producer/consumer collection. Returns the item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer collection has completed adding and is empty, or if the take from the underlying collection failed. This method may block the calling thread.
+            </summary>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncConditionVariable">
+            <summary>
+            An async-compatible condition variable. This type uses Mesa-style semantics (the notifying tasks do not yield).
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncConditionVariable._asyncLock">
+            <summary>
+            The lock associated with this condition variable.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncConditionVariable._queue">
+            <summary>
+            The queue of waiting tasks.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncConditionVariable._id">
+            <summary>
+            The semi-unique identifier for this instance. This is 0 if the id has not yet been created.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncConditionVariable._mutex">
+            <summary>
+            The object used for mutual exclusion.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.#ctor(Nito.AsyncEx.AsyncLock,Nito.AsyncEx.IAsyncWaitQueue{System.Object})">
+            <summary>
+            Creates an async-compatible condition variable associated with an async-compatible lock.
+            </summary>
+            <param name="asyncLock">The lock associated with this condition variable.</param>
+            <param name="queue">The wait queue used to manage waiters. This may be <c>null</c> to use a default (FIFO) queue.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.#ctor(Nito.AsyncEx.AsyncLock)">
+            <summary>
+            Creates an async-compatible condition variable associated with an async-compatible lock.
+            </summary>
+            <param name="asyncLock">The lock associated with this condition variable.</param>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncConditionVariable.Id">
+            <summary>
+            Gets a semi-unique identifier for this asynchronous condition variable.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.Notify">
+            <summary>
+            Sends a signal to a single task waiting on this condition variable. The associated lock MUST be held when calling this method, and it will still be held when this method returns.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.NotifyAll">
+            <summary>
+            Sends a signal to all tasks waiting on this condition variable. The associated lock MUST be held when calling this method, and it will still be held when this method returns.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.WaitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits for a signal on this condition variable. The associated lock MUST be held when calling this method, and it will still be held when this method returns, even if the method is cancelled.
+            </summary>
+            <param name="cancellationToken">The cancellation signal used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.WaitAsync">
+            <summary>
+            Asynchronously waits for a signal on this condition variable. The associated lock MUST be held when calling this method, and it will still be held when the returned task completes.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits for a signal on this condition variable. This method may block the calling thread. The associated lock MUST be held when calling this method, and it will still be held when this method returns, even if the method is cancelled.
+            </summary>
+            <param name="cancellationToken">The cancellation signal used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncConditionVariable.Wait">
+            <summary>
+            Synchronously waits for a signal on this condition variable. This method may block the calling thread. The associated lock MUST be held when calling this method, and it will still be held when this method returns.
+            </summary>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncCountdownEvent">
+            <summary>
+            An async-compatible countdown event.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCountdownEvent._mre">
+            <summary>
+            The underlying manual-reset event.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncCountdownEvent._count">
+            <summary>
+            The remaining count on this event.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.#ctor(System.Int64)">
+            <summary>
+            Creates an async-compatible countdown event.
+            </summary>
+            <param name="count">The number of signals this event will need before it becomes set.</param>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncCountdownEvent.Id">
+            <summary>
+            Gets a semi-unique identifier for this asynchronous countdown event.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncCountdownEvent.CurrentCount">
+            <summary>
+            Gets the current number of remaining signals before this event becomes set. This member is seldom used; code using this member has a high possibility of race conditions.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.WaitAsync">
+            <summary>
+            Asynchronously waits for the count to reach zero.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.WaitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits for the count to reach zero. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the wait. If this token is already canceled, this method will first check whether the event is set.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.Wait">
+            <summary>
+            Synchronously waits for the count to reach zero. This method may block the calling thread.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits for the count to reach zero. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the wait. If this token is already canceled, this method will first check whether the event is set.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.ModifyCount(System.Int64,System.Boolean)">
+            <summary>
+            Attempts to modify the current count by the specified amount.
+            </summary>
+            <param name="difference">The amount to change the current count.</param>
+            <param name="add"><c>true</c> to add to the current count; <c>false</c> to subtract.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.AddCount(System.Int64)">
+            <summary>
+            Adds the specified value to the current count.
+            </summary>
+            <param name="addCount">The amount to change the current count.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.AddCount">
+            <summary>
+            Adds one to the current count.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncCountdownEvent.Signal(System.Int64)">
+            <summary>
+            Subtracts the specified value from the current count.
+            </summary>
+            <param name="signalCount">The amount to change the current count.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.As<ncCountdownDven\.Sielalb>
+   !        =summary>
+     (  $   Subtvacts Ônu &rom tle current$cOunt&
+    !       </summ`ry>
+  (     <-member>
+!      `<}embeR†namÂ="T:Nito.AsynbGx.AsyncLaryFlags†>
+         † <summarx>    $      BlaÁq cmntrolling tha behevior oÊ <see cref="TzNÈtonAqyncEx.AÛyf3Dazy‡1"/>.    $       </summary>
+   0  ( </me|bEr>-
+        <mMm"er name9"F:NitO.AsyncEx.As{ncLazyFlagsNona">
+! `    $    <summary>
+` †  $      No0special flcgs.$Txp factnry ie|hd is executed on a thrEid pool Ùhread¨ and does not redry i&itialization(on fa)lures (bailuCes aru cCCied).
+   !   !    ,/suÌ}ary>
+      " </member>
+        ,membar naoe="F8Nito.AsyncE¯.AÛyncLazyGlags>ExecutgOnCallingThruadb?J  0        †<wemmary>J        (   UhecuuÂ thd fa#tory method Ôn the „alling thread.
+      0     <+summary>
+!     # /memrez>
+   $    <membmr naMe="F:F)to.AY.CEx.As9n#Laz9Fl„g3nSEtryOfFaidure">J          ( <summary> 1 ($   `   If tie f!ctor} mdthod fails, t(En re-rwn the!factory meˆhod the nex4 Ùim% insvead of cEchmÓg0the faile` task.
+    0 "     |/semmary>     !  8/member>
+ $ !    <member nale="T:NatoAsywbEx.AsyncLazyb1">
+   0  (     <summarx>
+  `   †     Provides sup0ort fÔr asyncËrojgus lazy`inÈtializitiom.$Uhis type is!fUll˘ thRÂas!ne.
+ 0   ``  `  <osulm!ry.äa $     § ! <4ypgparam npma}"4">Dhe txp% of obzect that ms bei~g0asynchrnously initMahized.</typetaram>ä     †  </membmr>
+   †    <mEmber name="F:Nytm.Async≈8/AsyncDazy`3._luıex#>
+      † $   <sueoary>`0         `ThE synchr/ni:ation nbject provectyng <C>instancE/sæ.
+  0  0      >/wummary>
+  "  !  |/mem`er~
+    h$  <membeÚ name="F;NitkAcyncEx.AsyncLazy`±._factory">     (      <summary>
+      `     The factory mÂthod po call.J   `    "  !</s}emary>        |/}%mber>
+0   ` " >membev n·Me="D:Œit>@syncEx.AsynbLazy`1.Oinstance&>
+            4summary>ä           "Tie Underlying la:y task.    0   (   4/Rumm`ry>
+0    (  </iember>
+®   (   <memjer naoe="B:Nito.AsyncEx.Aqy.cLazy`1._i`¢>
+    ($ !    <suMmary>
+   ! " "0   The`semi-}jiuee†identifier for tjis Ènstance& Thi[!is 0 ig!the id xaÛ not ˘et(veen created.
+            </summar9:ä      " <omembUr6
+     a  <membmr name="Dznito/AsyNcEx.CsyncLazy`1.#√tÔrHSystem.Func{ystem.Threadinf.Tas{s.Tqsj{`0}˝,Nito.AsXncEx.3yncLazyFlagq)">
+           !<summa2y>
+ (   !      Ani4ializes(a few instance /f tha <see cveÊ="TzOito.AsynaEx.AÛyncLaZy`!"/> cÏiss.
+ " ( ! † !( </s5mmary>
+†   "   ` ! <param name="factory">The `synchronous deleg·te that0){ inv/ked 4o produse the6alu] when kt‡is†leeded.$Õay nkt "g <c>~ulll/c>.<.param>
+    "    §  <pasam name=&flaÁs">Flacs to infl|ance async laz} semantics.</param>
+  $ $   >/embu˙>
+   †    <membeR name9"p:Jito.AsyncEx.AsynsLazy`1.Id">J$    0      <sumMarq>  `   †  †  Geps a semi-uniqug identifyer fÔ phis a{ynchrnnous lazy instance.
+   h  $ (  </semmcr9>
+        </memberæ
+   !  †0<m%mb%r naie="P:Nito,AsyncEx.AsyncHazya1.IsSÙArted">
+   0     "  <Ûummary>ö     `     "Whe$her the asynchrofo}c factÔpy methkd hQs starped.!Tlis is!initially ,c>vaÏse8/c> an$ becgmes |c>true</c> when this instajce is iW·ited ob abter <seÂ cref="M:L)to.AsyncEx.Asynglqzy`1.Start /> is #alled.
+ h   `      </summary>
+        <-memfer>
+        <member!namd="P:NitonAsy~cEx.Asy.cHazy`!.Veskb> d          <s5mmcry>
+    † ! "  pStarts tie asqnchbonous fictory lethOd,`if it°has not already stcrTed, and(betur.s phe re3ulting tAÛk.
+$ $   0 !   </suo}avy>
+        </mÂmbmr:
+   " $  <}em"es nime="M:Nito.AsyÓcEx.AsynCDazy`1.GetAwait%r">-
+       (    <su-mary>
+(  † †   `  As9nchrolous infr·stru{ture†sqpport/ This lethod perEits instankes of!<sm% crÂf?*‘:Nito.AsyÓgEx.@syncLczy`1"/ to@be awiit'e‰.â
+   ! 0`   †(4/wummary>
+   `   04/member
+ 1      ºmembeb Ôame?"M:Nito.AsynrEx.EsIncLazyp1.C/nfig}reEwait(SπsteoBoolean)">
+       0    <summary>ä            syn£hsonÔus"infraCtzucture sıqport. This methÔd rermhts in{t`nces of <{ee csef="T:Nito.ASyncEx.AsyncLazy`1#/> to0be avaiÙ'gd.
+     ` !    </summery>
+  $     </membesæ
+        <Membdr!namg<"O:NiÙo.Asy.aEx.AsynkLazyb0.S4art">
+     `    " <semmery>
+    †       Suartr`the asxnbhronouw )nitiahization, if it has Not Alpea‰Y starte‰.M
+          ( <summa‚y>
+        <?memBer>
+ $!    †<mem"ar name="‘:Nitl.As˘nbEx.As}ncLock">
+        $   <qUo/aRy>J  ```      0E mutual†ex#,usion$lgck`that is(ckmpatibll wÈth`async. ode that"|his"locc hs <#?nod<?B> pecuvsive!
+           (<?cumm!ry>
+        $   <rei`2ks †          8pard>TËys iÛ†t`e <c>as{nc</c>-sead} !lmoct-equi~ilÂnt"of the(<c>lck<Øc> keyord or 4he <sme sref=bT”ys4um.Txreading.Mutex"?>(type< smmilar to ,! href="(ttp://blogs.msDN.cÔm/b/qfxteam/archive/2112/02/12/10266π88.aspy">Stephen$Toub#s Asy~aLock</i>.∞It's of|y <h>almost</i> eqyiˆalmnt becatse phe <c>lock<'c> kEyword permits reantr!l#y, which iq oot†„urrentmy poss)ble$to d wath"an >cøawyn#</„>-rÂadY lock.<Øara>
+    0(   `  <pcr`>n$8see cref=2U:NiÙo.Isyncex.AsyncLock"?> hs either taken"or Óov. ThE logo"„an bd asynchronoqSly†acquired by calling <3ed aetoUpGrade="true" cref=%M8N˘ÙoCsyncEx.As9ncÕock.L~qkAwync".>, !nd it is reheised bz di{posing the reqÒlt of that tark/`<see craf="E:NitoÆAsyncEx.@sxncMo‚k.LÁckas{~c(System.Threadhng.CancelmatÈonToken)"/> taces`an gpti/.al <sedÄkbef="T*Syspel.Threadyng.CansellationToken"/>, which†can be u3ef t cancel†tje$a„quÈrin' of thm lock.|/para>
+   † 0  †   <para>Ph% task refurngd fpom 8seÂ au`oUPgrade="tr}e""cveB="Ã:Nitk.A3yncEX,AsyncL/c{.Lockisyjc"/> will gnter vHe <c:CÌ}pheued<Oc>!qu%te ˜(En it0jas acquhred die <{ee cref5"T:Nito.@s9n„E.AsyncLock"o>. That"sa}e taqk 7ill mnter txe ºc>Can„eled</c> state if the <see cref="T2Sys$em.threadifg.CaÓcellatIon‘o{eo"/> is 3ignaled before(tha(wakt issat)sFied{ in`that case,(vie <seu cRef="TzNito.As˘nc≈9.A3ynbLock"/>"is Ïot take, by t(at†task./parc:
+ & !      ( <para>You can call <sie cref=M:Nhto.√s9ncEx.Asy~cLock.ock(System.Threading.Ca.cellataojToken)"/> or®<see cref="M+Nitk.ÛyncEx.AsyncNeck.\nckAsync(Sxste-.Threading.CancEll!tionTo+eo)"/> with An alrecdy-#qncelled <see cref=bT:Syrtem.ThreAdinG.cancellationTooen"/> to aTuEept to ac1uire thu <s%e cr%f=¢T:nito.As˘ncEx.As}ncLogi"/> kmmediately withoud actually entÂsiNg the wait queue/</p!rQ>
+  "    0  ` </reiarkc>  `         <example>
+        "   <para>TËm vast m·j/Rity of use cases aze to just re0lace a <c>lo#k</#>†statement. That is,`with thU"grio)oal godE!looking liie t|)S:<'Para>
+          $ <koDd>*  !   !  0  qrk2ate0reAdon,9 object _-uteX = new object();    (†  (!  publyc w/id DoStuff()  †( `      {
+ $       !   " †hock (_mutep!
+       @      0 ˚
+           $       †Thrdad.Sleep(TimesqAo.Frooseconds)1));
+         !0     }
+    `       }
+  $       " <.codd>
+         "  >para>If we wAlt!t replace tje blocking operavion`6c>Thvaad.Sldep<-C> with an icynahvofou{ equivalunT, id'Û .ot dirmCtlq p?sqable `ekause of 4`e <a>locK9/c>"blncK. Vu cannoT <s>awaKt</k> Inskde od c >c>lock</c>.</para>-      †  (  <papa>SÔ, we uSe the <c>asy.s</C?coiQa4able <sue c2ef="TNito.@syncEx.AsyncHock"/> nstead*,/paÚa>
+ #!       0 <coda>
+"†  †   `   prk^ate0readonly$Asy.cLokk _muPex = ndw AsyncLock())é  0†   #    pujmic `Sync ‘`ck DoQtuffAqynb*)
+   0        y
+              " using !wait _muTexÆlockA3ync9)
+      0         {çà   "( !   (         awiit Task>DElay(TimeSpan>FrolSÂconds,!));
+   ` `       (  }
+    (       }
+0  $       `</code>           "</exqm0le>
+     8  </member>ö        <me}bup fame="F:Nito.EsYncEx.Asx~cock._takEn":
+    0 $    `<summury>
+@   0 ( `   Whep`er the ljck†is taoun by a task.
+    " `     4/suimasy>
+   †   Ä</mÂmber.
+  !    <membdr name="F:Nmto.asynkex.As9ncLock._queue">          ( <summ`ry>
+`     "     Tle‡qıgue of TCSs Tlat o4her tasks`cre"aaiting$to‡acyuire tie lokk.
+          ( |/su}mar9>   `    </member>
+§ 0     <Ìember .ameΩ"F:Nato.AsYfcEx.Asy~cLock._it">
+ " 0(       =cumm1ri>
+  #         h% samI-un)que Addn4if)≈r fkb thiÛÄiJstaÓce. This )s 0 if vhe i$!hac not†yet been creatad.
+     0   (  </summiRy>
+`       </member>
+(       <}ember name="F:Nivo.Asyjcz.AsyncNock._mqtex">
+      ! †   <s}mlary>
+    0  " !  Tje oblect uwe‰¢for mutual excÏusion.
+$           </summary:`  (  0 </member>
+ 0      <member fame="M:Nito.AsyncUx.AsyncLoki.!ctor".M
+    °  0 "  <{tmmasy>
+!`   ( `    KreateÛ a new asqlc-compaTible mu|u·l exalusign"lock.
+  ( †  "    </summary:*" `     </}ember>
+        <membeS naOe="M:NiÙo&Awy~cEh.CsyncLock.#ctkr(Nitn.AqyncEx.IAr˘jcWaitY}eue{System.IDis0osa‚le}+">
+  †      0  <sum-cry?
+   !   0   `Creatgs a naw aSync,com`adibld mutual!exclu{ion$lock"Uqing†vhu specifiedhwait pugue.
+    $  `""  <Øsummary>
+ $ !  0 " "0=param na-e9"queuE">Vhg w!iv queue!uced to ma.agE Waiters. This!may!be`<c>n5ll</c> to use a dafault .VIFO( yueue.<Øpazai>
+   !  ` </memBer> !      %emcer namq="P:NÈto.Asy.gMx.Asy~cLoCk.Id">
+    ° $ !   <3umm!ry>
+ `  (` $    Bets a seii-u~ipue cdantifydr"fOr dhs asyncnronous |occ
+  a"0     0 </wı)mary>
+ !$  0  </member>
+( "    `<m•mbep nAme="M:Nito.A3yncEx.Aw˘ncLock.“eqUestLockAs}jc(Syc4mi.ThreAding&CenÛelnatimnToken)">
+ † (`   "( `<summary>
+     `      Asynchrono5sly aÎsuir%s tle <ck.(ReturnS i Dis`g3able uhit releases`the°locc whe diÛposdd.
+     8   !! </su]marπ>
+`    † !(   <parem Name="ca.gellatioÔ‘oken">The8C`naellation token u3eb to cancen the lock. If this(is already`set,`t8en this ieuhod will `tpÂirt to take the lock immediAtely *SuCceuliÓg id"th% Ïogk is kurren|ly ifaiÏable)<Øparal>
+      ¢  †" <rgtubnSA dÈsposable t(At relea3es the los{ shun dksqÔsed.</rettrns>-
+0    $  </Ìeob%r>
+  (0   (<member†na-e="M:Ni|o.AsyncEh.Es|ncLoco.LoCkAs˘nc System.Uhreaeijg.cancallationoken)">
+(    (   $†ºsıÌlary>
+   $!"      AsynchronouÛly !cquires$uie nock. Rmuurns a disposable vhat releasgs thm lock whe. di3posed.            </cuMm!ry>
+          † qaram name="c`~c%llatygnTokdn">Tie caÓkeÏlation to{en u{ed to`c!ocEl the lock. IF$thm3 ir already Set, then thiS metjod sill"at4empt to tace Ùhe lock a}mediat%ly (sUcceedhng if the lock$is†curpeNtly arai|able).</param>
+    †  (  $ <returns>A lIstose`le that`relecses the ,oak w(en $isposmd.</returns>
+   0†   ,/-embur>
+"       <member"nale="M:Nito.AsyncE¯.AsyNcDocc.ÃockAsync&.
+            <Ûuimar}>
+    (   ! !†AqynahfonÔusly asÒuires th% locK. Returns a disosable thau releeses t(e lock w`e~ d)sposad.
+           ,</s%m-ary>ä       ` $  <reÙurns~A disposa`le tiat!rel%aseS t`o lock heÓ diwposed.=/rauurn{>ç
+   ! ! /member>ç
+ $   $ †membep`.aMEΩ"M:Nito.As{jcE8.Asy|cLock&Lock(S˘stel.Thbeading.CafcellatiOnToimn)">
+ !(    0    =sÂmmary>
+        `$  Sync`ronously acquires dhg lock. RexurnÒ a disxosAble thad releases the mbk when `IspoÛed. Thiw method may block the callyng thread.
+     " †    </sullqpy>
+ $0 !       <param nalu=&aancellati/nPocen¢>The cancel,adion vokmn used tˇ cancEÏ"the lock. Cb tHis is amvea`y set, thej this(Method fh,,4ettempt Ùo"take`|he lock†imleukatelq!(susceeding if |He lo{k is √urrentdy availa‚|e!.</pa~am~
+    1  §Ømember>
+ $  †  !ºmembep nameΩ"m:Nito,A3yncEx.AsyfcLock.Lock">
+  ( "       <summary>
+     !      Synchronously acquires uhe lkck. Rattpns a`dhsposable that releasew the0lo#k whej dksposdd. Thks mmthod ma{ blÔCk thE calling thrdadn
+          " </sum-q2y
+`     0 </oeÌbep>
+     "  <member Óame5"M:Nivo.HsyncEx,Ar}ncÃock.Remeisulock">
+ $  $   `   <sumecvy>
+     †      Releaces the lock.
+           </summaryæ
+ 0      <member>
+        <member name="T:Nito.AsyncEX.AsyncLoak.Key">
+ !      ` a <summary>
+      `  `! The disposable which re,ease30the lock.     †  ( " </{ummary>
+ !  $  /}emrer>
+ †      <membÂ" nAee="M:^ito.@synCCx.AsyncLockK˜y.#ct/sJiuo.IsyncExnA3ynCLocC)">
+      ` (   <suimery>
+   "  %   " Creatuc the kuy for a†lock/
+ " (        |/summar}>
+  (         <papeo name="asyfcLock">The lock tO release* M!y nkt bÂ <c>n5ll</„æ.</param>ç0  4    <-mem`er
+       `<member name-"T:Nito.Async%x.As˘ncManu`lResEvEvent&æ
+          ( 83um}asy>
+ "  !       An asynC%compauibÏe!manu!,-re{et erent.  ` `       </sumÌarq?J !      </member>
+        <me-beR name="F:Œito.A{9n„Ej.Asy|cManUalZesetE~unt._mutex">J       "`  `<summar9>	
+        $   Th' obj%ct qSe‰$&or synghronization.
+    †    (  </summAry:        </MEmb%r:        <membes$n`Me="F:Nito&AÛyncE8.AsyncEcnualRasedEvent._tcs">
+†        !$<sumlarŸ>M
+  $  0  #   Thecurrent!sÙate on the$m~ent.
+ %          </summary>* 0      </me-`er>        <mem‚er$jaÌe="F:Nmto.AsyncEx.IsyncManualRgÛetEvent>_id">j            summaRy>
+         $ (T`e semi-uniq5e identiÊier foV this†instancu†Thys as 0 if the id haÛ .gÙ$ye4 baen {r%ated.ä       ! "  </s’mmar{>
+        </melber>
+i  `    <iem‚mr(name=M*NhT/.C3yocEx.AsyncManuil“esetevent.'ctor(SystEm.Boglean)">	
+            summary>M
+ !    0     Creat%s2ql async-cmm`a$ibme(-anua|-pEset event.
+$    (  †   </Summary>	
+            <param name="se|">Wh%TËer qhe m·nucl-“eset etdnu iq i.itiaÏdy ret$/z uniÂt.<+`c2am>
+        </member<
+        <me}ber!n!me="MzNito.AsyncEz.As{ncManualZe3e|Eveft.#ctos"<
+     (  ""  <summary>M    Ä       Creates†an async-comq„pible†manuAl-reset eveÓt†that∞is initiully unsut.
+ 2  `     ††</q¸mmqri>
+   "    <omemberæ
+        <membdr`ÓaMe="P:Oito.AsyncEx'AsynkManUalR%3etEveNv.Id">J   #        >sum}ari> †   †    ( Geps a smmimujiq5e iƒentafier for this asyngh2olous manual-re3et evEnt.
+  0         </summar9>è
+   ®    </me}fer>M
+$   0` 8member fama="P:Nito.As˘n„Ex>AsyjsMaouales%tEvent.IwSetÇ>
+  $         <summary> $ †  $   0 Whether this eve~t is cUr2ently set.¢This(member is seldom used; cÔfÂ using this meebez jcs a high posSibIliTy of raae ckditions.
+ ®   00     </sUimary>
+     !  >/Ìember>
+        <membeb name="M:nIto.AsxncEy.AsyfcLajualRÂsetEvu~t.Sa94Asi~c">
+   0) †     <summ·vy>      $     As˘nchrobnwsny waits for This†Erent to!be set*
+   !   `    </summap{>
+`       |/mÂmber>ç
+      ( <e‰m`er°jama=.M∫Nito.Esy.cExÆAsyncManublResetEvent.Wqitsy~g(Sys4em.ThreidilG.AancemhatmonVoken©">ç
+    `0   $  <{ummasy.
+         !  A{yncirnouql˘ vaits for$this etejt to be Ûet oÚ For the`gait to0be cancelet.
+          ( <.Summapy>
+  ( 2   †   <ParAm(namÂ}"gaNcalÏataonVoken">Tjm cincella6ion token used to c`ncel the wait.!IÊ th)s token iq already ca.celed, this iethgd will first cjeck whether the evEn4 as sef.>.param>!       t/m%mbar>  "`    <member name-"M:Nito.AsyncEx.sincM`nua,ResetEv%nv.Wait">0 ("       0summaRy.
+       !    SynchroNously†waitr for§this event$po be qet. Dhic muphod may rnock tje Cal|iÓg tpÚeAd.
+      0     </sım}ary>
+        </iumber>
+        <membgr lame="m:Nito.AsynaEx.AcyNcManuadResetEvelt,Wait(Cyrtem.Tjpeading.GancelmationTken)">ä ` `        summaÚy>M  0         S{nciro~ously waht{ for thas eveNt To be sat. This`metjod iay ‚mock the cmlli~g thread.
+    p† (    </sumlapy>
+         !  <par`m name"cajgellatKonTokmn">\he cafgaLlation token u3ed0to cancel uhe wait. If tjas(tgkEn isaal2eady aanceled, TjIs method winl first check 7hethEr dhe ewent is†{e|.|/param>
+        </mem‚er>
+   `  ` 4mdmber name5"M>NMvo.AÛincG9nAsinbManualZesetEveft.Set">
+ 2          8sımm·ry>
+   †$"      Qets the event,(atomicadl} completin' every tqsk retuVned bx <see cref"O:Nito.AsynkEx/AS9ncMalualRewetEre.t.WaitAsync"/>. If |he eˆent is Already set, tjhs -etho$ does nothijg. !     (†  </rummazy>
+ $   †  </mEmbgr>M
+      0 <memb%r .ame5"M8Fi|o.Qsx~cEx.AsyncManualZesetEvend.Rewet">
+0           <summa29>
+    `     ( Resets The!'went. If"tËe even| hs†qlreany rese|, Thir Mathod doec nothing.
+(  0§  `"   </summary>
+    0  </meiber:
+   "    <Lember name="T:ŒitK.A3ynCEx.AsyjcMojidOrr>
+ ®         (<summary>
+  ($   `  ( Ab asylr-cÔmpatÈb|e monitr,
+            </sumiary>	
+$      </me}bÂr>        |me}ber name="F:Nitn.@syncEx.AsyjcMonitoz/_as{ngLock">
+ !        † ,suomary>
+!    "     `Phd lock.Ö
+     0   `  8/semmcr˘>
+"     †`</ommber>
+        <meebar†n·me="F:Nito.AsyncEx.AsyncMonitor._clndi|iknVÂriable">
+(        $" <summaÚy>
+  `         Phe bondmtion 6aricblm.
+  !         >/summar˘>
+†    ,  <%)embev>        <memb%s ÓaÌ%="M:iÙo.As9NCEy.Async]onitorn#ctor(Nito.EsiÓcEx.IAsyncWaatQueue{System.IdÈspgsablÂ}$Ni|o.¡ÛyfcEx.IsynCGaitQueum{S9stam.Object})">
+ 0   !   !  <summqz9>
+           †Cofstrecusa nes mgnitor.
+            </remmary>	
+ †  "†$    †<param name="lockQueue">The wait queue used to manage waiters for the lock. This may be <c>null</c> to use a default (FIFO) queue.</param>
+            <param name="conditionVariableQueue">The wait queue used to manage waiters for the signal. This may be <c>null</c> to use a default (FIFO) queue.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.#ctor">
+            <summary>
+            Constructs a new monitor.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncMonitor.Id">
+            <summary>
+            Gets a semi-unique identifier for this monitor.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.EnterAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously enters the monitor. Returns a disposable that leaves the monitor when disposed.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the enter. If this is already set, then this method will attempt to enter the monitor immediately (succeeding if the monitor is currently available).</param>
+            <returns>A disposable that leaves the monitor when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.EnterAsync">
+            <summary>
+            Asynchronously enters the monitor. Returns a disposable that leaves the monitor when disposed.
+            </summary>
+            <returns>A disposable that leaves the monitor when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.Enter(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously enters the monitor. Returns a disposable that leaves the monitor when disposed. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the enter. If this is already set, then this method will attempt to enter the monitor immediately (succeeding if the monitor is currently available).</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.Enter">
+            <summary>
+            Asynchronously enters the monitor. Returns a disposable that leaves the monitor when disposed. This method may block the calling thread.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.WaitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits for a pulse signal on this monitor. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns, even if the method is cancelled. This method internally will leave the monitor while waiting for a notification.
+            </summary>
+            <param name="cancellationToken">The cancellation signal used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.WaitAsync">
+            <summary>
+            Asynchronously waits for a pulse signal on this monitor. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns. This method internally will leave the monitor while waiting for a notification.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits for a pulse signal on this monitor. This method may block the calling thread. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns, even if the method is cancelled. This method internally will leave the monitor while waiting for a notification.
+            </summary>
+            <param name="cancellationToken">The cancellation signal used to cancel this wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.Wait">
+            <summary>
+            Asynchronously waits for a pulse signal on this monitor. This method may block the calling thread. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns. This method internally will leave the monitor while waiting for a notification.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.Pulse">
+            <summary>
+            Sends a signal to a single task waiting on this monitor. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncMonitor.PulseAll">
+            <summary>
+            Sends a signal to all tasks waiting on this monitor. The monitor MUST already be entered when calling this method, and it will still be entered when this method returns.
+            </summary>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncProducerConsumerQueue`1">
+            <summary>
+            An async-compatible producer/consumer queue.
+            </summary>
+            <typeparam name="T">The type of elements contained in the queue.</typeparam>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._queue">
+            <summary>
+            The underlying queue.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._maxCount">
+            <summary>
+            The maximum number of elements allowed in the queue.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._mutex">
+            <summary>
+            The mutual-exclusion lock protecting <c>_queue</c> and <c>_completed</c>.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._completedOrNotFull">
+            <summary>
+            A condition variable that is signalled when the queue is not full.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._completedOrNotEmpty">
+            <summary>
+            A condition variable that is signalled when the queue is completed or not empty.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncProducerConsumerQueue`1._completed">
+            <summary>
+            Whether this producer/consumer queue has been marked complete for adding.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Creates a new async-compatible producer/consumer queue with the specified initial elements and a maximum element count.
+            </summary>
+            <param name="collection">The initial elements to place in the queue. This may be <c>null</c> to start with an empty collection.</param>
+            <param name="maxCount">The maximum element count. This must be greater than zero, and greater than or equal to the number of elements in <paramref name="collection"/>.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Creates a new async-compatible producer/consumer queue with the specified initial elements.
+            </summary>
+            <param name="collection">The initial elements to place in the queue. This may be <c>null</c> to start with an empty collection.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.#ctor(System.Int32)">
+            <summary>
+            Creates a new async-compatible producer/consumer queue with a maximum element count.
+            </summary>
+            <param name="maxCount">The maximum element count. This must be greater than zero.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.#ctor">
+            <summary>
+            Creates a new async-compatible producer/consumer queue.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Empty">
+            <summary>
+            Whether the queue is empty. This property assumes that the <c>_mutex</c> is already held.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Full">
+            <summary>
+            Whether the queue is full. This property assumes that the <c>_mutex</c> is already held.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.CompleteAdding">
+            <summary>
+            Marks the producer/consumer queue as complete for adding.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.DoEnqueueAsync(`0,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Enqueues an item to the producer/consumer queue. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding.
+            </summary>
+            <param name="item">The item to enqueue.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the enqueue operation.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.EnqueueAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Enqueues an item to the producer/consumer queue. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding.
+            </summary>
+            <param name="item">The item to enqueue.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the enqueue operation.</param>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.EnqueueAsync(`0)">
+            <summary>
+            Enqueues an item to the producer/consumer queue. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding.
+            </summary>
+            <param name="item">The item to enqueue.</param>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Enqueue(`0,System.Threading.CancellationToken)">
+            <summary>
+            Enqueues an item to the producer/consumer queue. This method may block the calling thread. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding.
+            </summary>
+            <param name="item">The item to enqueue.</param>
+            <param name="cancellationToken">A cancellation token that can be used to abort the enqueue operation.</param>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Enqueue(`0)">
+            <summary>
+            Enqueues an item to the producer/consumer queue. This method may block the calling thread. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding.
+            </summary>
+            <param name="item">The item to enqueue.</param>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.DoOutputAvailableAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Waits until an item is available to dequeue. Returns <c>false</c> if the producer/consumer queue has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the asynchronous wait.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.OutputAvailableAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits until an item is available to dequeue. Returns <c>false</c> if the producer/consumer queue has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the asynchronous wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.OutputAvailableAsync">
+            <summary>
+            Asynchronously waits until an item is available to dequeue. Returns <c>false</c> if the producer/consumer queue has completed adding and there are no more items.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.OutputAvailable(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits until an item is available to dequeue. Returns <c>false</c> if the producer/consumer queue has completed adding and there are no more items.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the asynchronous wait.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.OutputAvailable">
+            <summary>
+            Synchronously waits until an item is available to dequeue. Returns <c>false</c> if the producer/consumer queue has completed adding and there are no more items.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.GetConsumingEnumerable(System.Threading.CancellationToken)">
+            <summary>
+            Provides a (synchronous) consuming enumerable for items in the producer/consumer queue.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the synchronous enumeration.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.GetConsumingEnumerable">
+            <summary>
+            Provides a (synchronous) consuming enumerable for items in the producer/consumer queue.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.TryDoDequeueAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Attempts to dequeue an item from the producer/consumer queue. Returns <c>false</c> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the dequeue operation.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.DoDequeueAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Dequeues an item from the producer/consumer queue. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the dequeue operation.</param>
+            <param name="sync">Whether to run this method synchronously.</param>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Dequeues an item from the producer/consumer queue. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the dequeue operation.</param>
+            <returns>The dequeued item.</returns>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.DequeueAsync">
+            <summary>
+            Dequeues an item from the producer/consumer queue. Returns the dequeued item. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <returns>The dequeued item.</returns>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Dequeue(System.Threading.CancellationToken)">
+            <summary>
+            Dequeues an item from the producer/consumer queue. Returns the dequeued item. This method may block the calling thread. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to abort the dequeue operation.</param>
+            <returns>The dequeued item.</returns>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncProducerConsumerQueue`1.Dequeue">
+            <summary>
+            Dequeues an item from the producer/consumer queue. Returns the dequeued item. This method may block the calling thread. Throws <see cref="T:System.InvalidOperationException"/> if the producer/consumer queue has completed adding and is empty.
+            </summary>
+            <returns>The dequeued item.</returns>
+            <exception cref="T:System.InvalidOperationException">The producer/consumer queue has been marked complete for adding and is empty.</exception>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncReaderWriterLock">
+            <summary>
+            A reader/writer lock that is compatible with async. Note that this lock is <b>not</b> recursive!
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncReaderWriterLock._writerQueue">
+            <summary>
+            The queue of TCSs that other tasks are awaiting to acquire the lock as writers.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncReaderWriterLock._readerQueue">
+            <summary>
+            The queue of TCSs that other tasks are awaiting to acquire the lock as readers.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncReaderWriterLock._mutex">
+            <summary>
+            The object used for mutual exclusion.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncReaderWriterLock._id">
+            <summary>
+            The semi-unique identifier for this instance. This is 0 if the id has not yet been created.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncReaderWriterLock._locksHeld">
+            <summary>
+            Number of reader locks held; -1 if a writer lock is held; 0 if no locks are held.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.#ctor(Nito.AsyncEx.IAsyncWaitQueue{System.IDisposable},Nito.AsyncEx.IAsyncWaitQueue{System.IDisposable})">
+            <summary>
+            Creates a new async-compatible reader/writer lock.
+            </summary>
+            <param name="writerQueue">The wait queue used to manage waiters for writer locks. This may be <c>null</c> to use a default (FIFO) queue.</param>
+            <param name="readerQueue">The wait queue used to manage waiters for reader locks. This may be <c>null</c> to use a default (FIFO) queue.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.#ctor">
+            <summary>
+            Creates a new async-compatible reader/writer lock.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncReaderWriterLock.Id">
+            <summary>
+            Gets a semi-unique identifier for this asynchronous lock.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReleaseWaitersWhenCanceled(System.Threading.Tasks.Task)">
+            <summary>
+            Applies a continuation to the task that will call <see cref="M:Nito.AsyncEx.AsyncReaderWriterLock.ReleaseWaiters"/> if the task is canceled. This method may not be called while holding the sync lock.
+            </summary>
+            <param name="task">The task to observe for cancellation.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.RequestReaderLockAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a reader. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReaderLockAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a reader. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReaderLockAsync">
+            <summary>
+            Asynchronously acquires the lock as a reader. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReaderLock(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock as a reader. Returns a disposable that releases the lock when disposed. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReaderLock">
+            <summary>
+            Synchronously acquires the lock as a reader. Returns a disposable that releases the lock when disposed. This method may block the calling thread.
+            </summary>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.RequestWriterLockAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.WriterLockAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.WriterLockAsync">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases the lock when disposed.
+            </summary>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.WriterLock(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously acquires the lock as a writer. Returns a disposable that releases the lock when disposed. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the lock. If this is already set, then this method will attempt to take the lock immediately (succeeding if the lock is currently available).</param>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.WriterLock">
+            <summary>
+            Asynchronously acquires the lock as a writer. Returns a disposable that releases the lock when disposed. This method may block the calling thread.
+            </summary>
+            <returns>A disposable that releases the lock when disposed.</returns>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReleaseWaiters">
+            <summary>
+            Grants lock(s) to waiting tasks. This method assumes the sync lock is already held.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReleaseReaderLock">
+            <summary>
+            Releases the lock as a reader.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReleaseWriterLock">
+            <summary>
+            Releases the lock as a writer.
+            </summary>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncReaderWriterLock.ReaderKey">
+            <summary>
+            The disposable which releases the reader lock.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.ReaderKey.#ctor(Nito.AsyncEx.AsyncReaderWriterLock)">
+            <summary>
+            Creates the key for a lock.
+            </summary>
+            <param name="asyncReaderWriterLock">The lock to release. May not be <c>null</c>.</param>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncReaderWriterLock.WriterKey">
+            <summary>
+            The disposable which releases the writer lock.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncReaderWriterLock.WriterKey.#ctor(Nito.AsyncEx.AsyncReaderWriterLock)">
+            <summary>
+            Creates the key for a lock.
+            </summary>
+            <param name="asyncReaderWriterLock">The lock to release. May not be <c>null</c>.</param>
+        </member>
+        <member name="T:Nito.AsyncEx.AsyncSemaphore">
+            <summary>
+            An async-compatible semaphore. Alternatively, you could use <c>SemaphoreSlim</c>.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncSemaphore._queue">
+            <summary>
+            The queue of TCSs that other tasks are awaiting to acquire the semaphore.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncSemaphore._count">
+            <summary>
+            The number of waits that will be immediately granted.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncSemaphore._id">
+            <summary>
+            The semi-unique identifier for this instance. This is 0 if the id has not yet been created.
+            </summary>
+        </member>
+        <member name="F:Nito.AsyncEx.AsyncSemaphore._mutex">
+            <summary>
+            The object used for mutual exclusion.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.#ctor(System.Int64,Nito.AsyncEx.IAsyncWaitQueue{System.Object})">
+            <summary>
+            Creates a new async-compatible semaphore with the specified initial count.
+            </summary>
+            <param name="initialCount">The initial count for this semaphore. This must be greater than or equal to zero.</param>
+            <param name="queue">The wait queue used to manage waiters. This may be <c>null</c> to use a default (FIFO) queue.</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.#ctor(System.Int64)">
+            <summary>
+            Creates a new async-compatible semaphore with the specified initial count.
+            </summary>
+            <param name="initialCount">The initial count for this semaphore. This must be greater than or equal to zero.</param>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncSemaphore.Id">
+            <summary>
+            Gets a semi-unique identifier for this asynchronous semaphore.
+            </summary>
+        </member>
+        <member name="P:Nito.AsyncEx.AsyncSemaphore.CurrentCount">
+            <summary>
+            Gets the number of slots currently available on this semaphore. This member is seldom used; code using this member has a high possibility of race conditions.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.WaitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously waits for a slot in the semaphore to be available.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the wait. If this is already set, then this method will attempt to take the slot immediately (succeeding if a slot is currently available).</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.WaitAsync">
+            <summary>
+            Asynchronously waits for a slot in the semaphore to be available.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.Wait(System.Threading.CancellationToken)">
+            <summary>
+            Synchronously waits for a slot in the semaphore to be available. This method may block the calling thread.
+            </summary>
+            <param name="cancellationToken">The cancellation token used to cancel the wait. If this is already set, then this method will attempt to take the slot immediately (succeeding if a slot is currently available).</param>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.Wait">
+            <summary>
+            Synchronously waits for a slot in the semaphore to be available. This method may block the calling thread.
+            </summary>
+        </member>
+        <member name="M:Nito.AsyncEx.AsyncSemaphore.Release(System.Int64)">
+            <summary>
+            Releases the sem`p¯gre&
+ !‡    †   0</smmary>
+    * †h</member>
+    (  `<-dmber name="M:NitO.AsyncEyfIsyncSemaphore.REleare">ä  "`        <summary>
+     † ( !  Releases Ùhe {giapxkre.
+  " †4   0$ </suloapy>-
+       0<--eMbep>
+ 0      <mmm"es namE="L>Ni|o.AsyncE¯.AsyÓCCemcphore.LockAsync(SyÒteM.Thread)ng.Cance$lauionToken)">
+` (  00!   †<Summa≤y6
+`    0      Asyfchrolously waits oo the$se}Ahore,†ifd redwrns a dispoaabd% vlat r%lecpÂs t(e sÂocPhore when disuosed, thus treatyng thks sem`plore As a "multi-log+".
+ (          4/summar˘>
+      (     |param na-e="cancellatioÓVokgn">The(cancedlatmon(tooen0used to c·ocel the wciÙ. If`thi! )s alruaDy set- T»en this metlod will aÙpumpt to take tHe0sloÙ i-mediatly (suc„aeting if a 7lmt is curren¸ly a~a)labhe+.8/Param
+        <meobgræ    0  0<m$mber n·m-="M:Nito.AsyncEx.AsyncS«maphorm.Lockasync">
+"    "    " <summary>
+     $      Asynchznnoısly†wa©ts"nn dhe weÌarhore,†and zeturns a di3posable |hat rElear%s fje semaphorE ˇhe~ disp/Ûed, thus 4rdatmno(txis sema0horE as e "eulti-lock".ä (Ç "  !  ` </s5m,Ary>
+        8/memjgr>
+    (  `<meobar ~ale="M:Nito.CwyncExASyncSe-aqhore.Loc+(S}stem.ThreadiÓgnCance|l!tiÔnTo+en	">†      0`   <summqry>
+     0     !SynchronÔusl1(wamts gn the sÂmapiord,an‰ retqrnÛ a thSpksable uhat rqleasÂs"the s%m!qhore when diSpose $ pË4s tReating thiw seo`phore as a -uldi?lock">
+            </S5imarx>-
+ !     ! †  <pqram(name="Aanc%lla<ionTokeÓ*>The cinCellation Ùoken used to K·bcel The 7ait.$	f thiÛ is aÏ2eady$set, uhen dhIs method wkll Adtem`t to take tËe slot1imMEdiatdly`(succe%ding if a rLod ys curre.tly avqilab,E).</r·ram>
+`    `  </m%mber4."   (  $<memfer n·me="M:nito.AsyFcEx.AqynaSumaphore,Ãsk"6
+  `     $   <sumÂ!ry>
+          ! Sync(Úonously waits on the sema`ore.jand ret}Úns a disposable that relÂaÒes The w%iaphore when dispoSgd¨"thus trEating thisdsemyphore as a "muldy-loÎk*/
+       `    </{ummary>
+        </oe-bur>
+        8member name9"TNito.AsyncEz.IAsyncWaitP}Âue`!*>
+     ($     <summary>
+0        †  A kollEctinn`ov$cancelarle <sue cref"T∫System.Threadi~g.Task3.TaSkCompl%uionSouRae`1"/> instances. IesLementat)ons must asÛ5me the #alDer i” h/lding a lock.
+   0(0     </wwmmary~ $          <typeparam nime="T*>The tqpe of the resu,ts."I& Ùhis irn't"needed, usE"<wee cref=‘8System.o"ject"/~.|/tyrepar!->
+     $  </memjer:
+ (      <membeq fAme=P:N9to.AsyncEx.IAsyncW!itQ4eue`p.IsAmt|y2>
+(           =summary>
+     !      FeÙs whether thu"ywÂue is empt˘.
+    h    (  </semmary6     ! 0</member>    0   <member name="M:nito(Acyn#Ex.IAsyncWAitQuewe`1ÆEÓqueıe">
+      †    <Ûummary>
+   ‡        Creates a†ne˜ mntry ind$queues h4 to thIs ˜ait"1ueue Tje retur.Mf(tiSk must surport botj synchronouq and$async`ronots weitsÆ	    $ †     </summary>
+ p         "<retur~s>The queued task.</returos>
+     (! <ømember>M
+        <membeb lQoe}"M:Fito.AsylcEx.IAsyncW·atQıdU%`1.Dequeuu(`0)":
+ (      $   <sumMQry>       `    Re}o6%s0a singlm entry in the wiit ÒuduE aNd completes it. Tlis mEtb/d mIy oNly bÂ celden if <see #ref="T:J)to.AsyncEx.IAsyncWÒitQueue`1.IsEm0=y"/> ms <c>falsa</c>. THe task conuin}adimns for the cmpne4ed 4askpmucu be gxecutgd esynshznnousmy.*` 0    $    </summary>
+  $    $  !$<p`pam j`mÂ=rusult">,e 2esult uuedHto†completÂ the saiÙ quetu entryÆ!If th)s isn&Ù n%eded use <c>deÊiult(E)<+c?.</peram>ä        </meeber>ä        <me-jer!Óame= M:^ito.AÒyncEp.IEsyn#WaitAueue 1.DequauÂAll(a0)"
+         (  ºsummary:
+`    $!    `2a|ovEs all Entr)%s in"thu w`it†sueua and compledes theÌ. he task continuatiooÒ"for |he kompË%tel tawks must ‚E0exeautgd`aÛynchro~ously.
+ (   "`*   </summarq>
+   0 (   " `<param(nAm%=#rÂsult">The resuht uwud to comPlete Ùhe wait!qu%}E ÂntRiesn If thIr icn't needed< use ,c>§efau|t(T)</c>.</param>
+   $  ! <?i}eber<M
+ $      <memfer name="M:Ni|m.AsincEx,IAryngW!itY5eueh±.EryCalcel(System.Thr%adingnTasks,TAsk,SysTgmThread)~g.CincellationToken)"6
+ !  (     0 <summary>
+        `   Attempts to vumove an entr9 froi the wait quewe an` calcehs it. The taÛk cootinuations For$uhe cmp,etgd vaSk mıs4 be exgCutad asyfchr/nourdy.          ` </suÏoary>
+!   `($"  0 <p`ra˝ nam%="taskbThe tass po!„enbeh.</pcbam>	  "    @  $ <`eram`name="cancellationTmken">The cAocellation tnken to use(vO canCel the 4arkÆ=P·zam>  " (†  ,/meober>
+`    $  <meÌber &ame="M:NitoAsynadx.IAsxncWaitQueue`3.Calcem@ÏlhSySteo.Threading.C·ncelËa|ionToken)">
+  "  $ "†$  <sum}arq>*( (         Remkves anl`eltrigs†from th! sAit quete aNd Calce|S the-n ThE task conpinuations for |he conpleted ta3ks"m=st be exeguted$asqnchronoucl˘.-
+  ("    0   </su}eay>M$†     †  †`<piram name?¢c#nkellationToken"=Phe cancellatioj voken†to trÂ t ca.„el the tasks/</param>ç
+   `    </member>-J     !  <m•mber$lime="T:Nito.Asyn„Ex.Asqnc!i|QueueExtenSionÛ">
+!        ( 0<summeÚy>
+  0         Provides extenSion mathots nor wait queues.
+            </≥ummar9?
+ à!  §  </Ìem"dr>     !† <mehber naie="M:Nito.AsyÓcExÆsyncVaitQ}eueExtefsio.s.Enq}eug``1(Nitg.AsynCGzIAsyocWaitQeeug˘``0}-ZyÛtee.Objabt,ystem.Thseadifg,SankellationToken)">: ( !        <summary>J(          †Creates a new ≈ntrx†and queues it |o txis"7·it†quewEÆ If the†cancmLLat)on tokej )s aLr%qdy canceleD, this -ethD immediate|y returns`a wajcel%d |ask without$onDhfyang$vhe w)it 15Eue.
+  !       0 </Summary>
+$      ,  † <parim name="t(is">The uait pueu`.</pavam>à            <piram nAmm=#mutex*>A sylc®ronization objec4 taken whkle!cancullilg thd Ântry.</paÚam>ô
+     †(00   <parao lime= Token">The 4okef uÛel t/ cajcel the w!it.<+parAm>-      †$  † <peturns>Uhe†qqaued ta[k></r%tqrls>
+       0</memb%r?
+ Å ($   <mgeber .ame=¢T2NitO.AsYncEx.DeÊauÌtIs{ncGaitQudue`±">-
+       `   0<su|mavi>
+ "       $  he Def·ult"wait qugue implemdntataon¨0wiich uses a doUble-ended queqe.M            </qummary>-
+         `  <tyPeparam neme="T"|Pha type knthe res5luÛ.`If uhis isÓ7t ngeDÂd, usÂ cee cr%f="t:Wystem.KÚject"/>.<otypmtAram~"       </member.
+       0<memb%r$naee9"T:NitO.AsyncMx,IdManager`1">M
+   (§ †"    ~s5iMary>
+† !         Allocates Ils foR insuance˜`on dema~e. 0 is an in6e,id-unassigoed Id. Ids oay bı nonèuniqUe in veÚy lonw)ru,ning#s9ster. Thys i{ similas To thm 	d rxs5em ıced bY`<sgd cref='T:Systee.Threqd)jg&TaskS.T`sk/~`!ne <see cref=":SysUemnTjreA‰ing.TaSks.T·2kschetuler"/>.
+     "      </wuima3y>
+ 0         0<t{pepaÚam ocme="TTag">TËd |ype for which$ids aRe feÓuraped.</t˘`epqram>
+ (      </mem@er>
+ "      <-ember name="F:ito.ASyncEx.KDMqnageR`.OlaÛtId>
+`           <summapy
+0 !  !   ®" Thu la{t kd gen%r`ted for dHiw type. This i{ 0 if no Ids@lave `gel generated.
+   "        ¸/summasy˛
+     !) </member?
+  †®    <meobeR fqie="	:Nyto.Q{YncEx.IdMAnager`1.GutIf sistdi.Int'2@)">
+$           <{wmmary>
+   §( `     Returns The kd,`a,loaating it if f}cessary.ä      `     8'summary>ç
+   †     `  <para- ncÌe= id">A refebeNcÂ to thÂ fi%ld containing the if.</pqram&
+   ($!  </membez>J        <mE}"er .ame9¢T:^ito.AsyncEyPaubePokenSource">
+            <summ·ry>
+         ," The souRce (controller)!mf e`"Pause tÔkgn¢ 7Hich ca. be used0to COgperaÙive|{ pauSe and unrause(operavÈons.  "   $    "<oSumm·ry
+  0!    º/member>
+      0 <mei"er name="F:Lito*@syfcEx.Pa}seTo+enSoırce&[mre">≠
+  (     0 † <Ûumma{y&       "    ie MRE txqt -anages th% "pause"0Ïo'ic. When Ùhe ISE is set, phe Ùoken hs0not paused; When!the MRE is not qet,"tËe poken is paused.J(       !(  </summary>
+ (    ( </Member>ä  0     <memBÂr name="P8Nitn.QsyncEx,pauseTOkenSouÚce.ISPausgd">
+        "   <sımmary>
+    "       Whgth%Ú /r not this skwrcE (ald its†tkkens) abe in the patsed statgn This member†is sendnm used;†bOee usmno th)s mgmj%r has a high poccibility of race cgnditioNs&J$0 $   ` b  </sum}ar8>ç
+    0  `</-embov>
+  "     4Meober jame= P:Nito.AsqncEx.ÿauseTokenSoupcÂÆTokÂn">
+            ºsUlmAry>
+    0   +   etq a"pause(tok%j cmntrollgd bq!t(is sourcg.
+ $          </suimary>
+        </membeb>ä        <mu|ber naoe=&T:Nito.As{fcexNPauceTokan"?
+          † <SuMmary>
+     `    † A type that allgw{ an oPgRation to be cooper·tively pause$.
+      !     </sıl-ary>
+ `  †$†(<m!mbeÚ>  $  $  <mem‚er Óame="&:NIto.AsyncEx.@euseoken._mRe">
+  †         >summavy>
+           †The RE v`at$manaces th% "pause" logic, or <c>null,/a> if t(is token can n%ver be pquwed. When the MRE is$s%t,†the!uooen is`Óo4 p!usEd; w`en vhm!MRE is nop cet¨ Ùhu token iS 0auced.ä    0       </su}mary>   `    </meober>
+   0    <}embeR†name="P:Fiuo.AsyncEx.PauseToke~.CanBePauset">
+    a`    " <Ûummary>
+ "   $"    §Whetlur this token can evep possibly be(paused.
+        `   </suumary>
+ † !    </}ember>     $  º-em`er name="P:^itˇ&A{ync≈x.PauseTmken.IsPavsed">
+` $        "<c}mmapy>
+†           Ghethez or lot t`is tozef is in ThÌ pauwed state&	
+      ‡    `<-sw-m`ry6
+        </oumbez
+ " !  † <mmmber naMe="M:Nito.Asyn"x.PauseToken.WeitwhIleXauSedAsync">
+    $(      ®summqry>
+  0 $!      @synbhrooously Uaitq untal the pausÂ tokan is0nOt pausgd.
+` !  †      <?sum}arq	
+        >/mgmber>
+     `$ <member naÌd= M:Nito.AsyncEx.PauseTo+en.SaitWhileÿ!usedAsync(Systgm.Threading.CangellationTo{en)"  0†       <wummarq>
+           (Aqn{h2on/uql9†waits until the pcuse to+en is nt`paısed,"or Until this(wait Èc ba~celÂd†`y ‘he`cancel~ation token.
+(      0   (<osummarY2-
+       $    ,param nimeΩbToken">The bankellation toie.$t`obwerve. If the Token ic already cancdled, this oe4hod!wil,0firt checK if thg paese teken iw 5npaused,(·Nd will rÂturn$widxout an$e8≥eption in txat case.</pabam>
+    1   /member>
+      ! member name?"L:Nitm.Asyocx.P`usEUo+en.WaktWhilePausEd">
+        "   <summary<ç
+            Syncxronouwly`s·its until the pa5se token ic†nt pcused.
+   (        ¥/sumÌary>
+ 0 0    <.membır>    0†" ,mem"er name="m:Nito.AsyncEz*PiuseDokel/WaytWhilePaused(y3tem.‘hreadifgÆCancellationToken)£>
+   (        <sqom!ry>
+  "!        Synchrofnusly waits unt…l the 0ause TokeÓ is nt 0iused, or untal d`i3 sai4 is c·nceled by tje CencelÏatamn 4oken.  $         </summAry?
+         "0 <xaram!naMe= tokeo">The cancellatyon tOken \o obserVe. If!|He token i3 Already canceLed, this MethÎ` whll first check if uhe pauSe token is`unQaused, and will 2eturf without ef excuption"in taat case*<tasam>
+       "</memjez>
+    </m%ebers>
+</doc>

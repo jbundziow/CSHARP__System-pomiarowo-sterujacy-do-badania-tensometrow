@@ -1,0 +1,403 @@
+<doc>
+    <assembly>
+        <name>Xamarin.Forms.Xaml</name>
+    </assembly>
+    <members>
+        <member name="T:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ArrayExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Items">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ArrayExtension.Type">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ArrayExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.BindingExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Converter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.ConverterParameter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.FallbackValue">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Mode">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Path">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.Source">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.StringFormat">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TargetNullValue">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.TypedBinding">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.BindingExtension.UpdateSourceEventName">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.BindingExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#BindingBase}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="C:Xamarin.Forms.Xaml.DataTemplateExtension" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.ProvideValue(System.IServiceProvider)" />
+        <member name="P:Xamarin.Forms.Xaml.DataTemplateExtension.TypeName" />
+        <member name="M:Xamarin.Forms.Xaml.DataTemplateExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)" />
+        <member name="T:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.DynamicResourceExtension">
+            <summary>內部。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.DynamicResourceExtension.Key">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.DynamicResourceExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#Internals#DynamicResource}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Extensions">
+            <summary>定義 <see cref="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)" /> 方法的 <see cref="T:Xamarin.Forms.View" /> 延伸類別。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.String)">
+            <typeparam name="TXaml">初始化狀態從 [XAML] 檢視的型別。</typeparam>
+            <param name="view">要在其上執行此方法的檢視。</param>
+            <param name="xaml">編碼檢視狀態的 XAML。</param>
+            <summary>透過載入指定的 <paramref name="xaml" /> 傳回初始化檢視。</summary>
+            <returns>初始化的檢視。</returns>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.Extensions.LoadFromXaml``1(``0,System.Type)">
+            <typeparam name="TXaml">初始化狀態從 [XAML] 檢視的型別。</typeparam>
+            <param name="view">要在其上執行此方法的檢視。</param>
+            <param name="callingType">呼叫者的類型。</param>
+            <summary>傳回具有 <paramref name="callingType" /> 應用程式資訊清單中定義屬性的 <paramref name="TXaml" />。</summary>
+            <returns>具有 <paramref name="callingType" /> 應用程式資訊清單中定義屬性的 <paramref name="TXaml" />。</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.NullExtension">
+            <summary>區分 Null 值和空字串的延伸類別。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.NullExtension">
+            <summary>使用預設值建立新的 <see cref="T:Xamarin.Forms.Xaml.NullExtension" /> 物件。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.NullExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>傳回 Null 物件。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnIdiomExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Converter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.ConverterParameter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Default">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Desktop">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Phone">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnIdiomExtension.ProvideValue(System.IServiceProvider)">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Tablet">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.TV">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnIdiomExtension.Watch">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.OnPlatformExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Android">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Converter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.ConverterParameter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Default">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.GTK">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.iOS">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.macOS">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.OnPlatformExtension.ProvideValue(System.IServiceProvider)">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.Tizen">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.UWP">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.OnPlatformExtension.WPF">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>參考其他 XAML 定義類型用的標記延伸。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.ReferenceExtension">
+            <summary>使用預設值建立新的 <see cref="T:Xamarin.Forms.Xaml.ReferenceExtension" />。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.ReferenceExtension.Name">
+            <summary>取得或設定要參考的實體名稱。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.ReferenceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>傳回物件，代表所參考的類型。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>取得靜態成員值的標記延伸。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticExtension">
+            <summary>使用預設值建立新的 <see cref="T:Xamarin.Forms.Xaml.StaticExtension" /> 物件。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticExtension.Member">
+            <summary>取得或設定成員名稱。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>傳回成員的值。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StaticResourceExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StaticResourceExtension.Key">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StaticResourceExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.StyleSheetExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Source">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+            <value>供 XAML 基礎結構內部使用。</value>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.StyleSheetExtension.Style">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+            <value>供 XAML 基礎結構內部使用。</value>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.StyleSheetExtension.Xamarin#Forms#Xaml#IValueProvider#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+            <returns>供 XAML 基礎結構內部使用。</returns>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.TemplateBindingExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Converter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.ConverterParameter">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Mode">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.Path">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TemplateBindingExtension.StringFormat">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TemplateBindingExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TemplateBindingExtension.Xamarin#Forms#Xaml#IMarkupExtension{Xamarin#Forms#BindingBase}#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.TypeExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.TypeExtension">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.TypeExtension.TypeName">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="M:Xamarin.Forms.Xaml.TypeExtension.Xamarin#Forms#Xaml#IMarkupExtension#ProvideValue(System.IServiceProvider)">
+            <param name="serviceProvider">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlCompilationAttribute">
+            <summary>此屬性控制在建置階段還是執行階段編譯 XAML。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.XamlCompilationAttribute(Xamarin.Forms.Xaml.XamlCompilationOptions)">
+            <param name="xamlCompilationOptions">此值告知在執行階段還是編譯階段編譯 XAML。</param>
+            <summary>使用指定的值建立新的 <see cref="T:Xamarin.Forms.Xaml.XamlCompilationAttribute" />。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.XamlCompilationAttribute.XamlCompilationOptions">
+            <summary>取得或設定值，告知在執行階段還是編譯階段編譯 XAML。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlCompilationOptions">
+            <summary>列舉可控制何時將 XAML 編譯成 IL 的值。</summary>
+        </member>
+        <member name="F:Xamarin.Forms.Xaml.XamlCompilationOptions.Compile">
+            <summary>建置應用程式時，編譯類別或專案的 XAML。</summary>
+        </member>
+        <member name="F:Xamarin.Forms.Xaml.XamlCompilationOptions.Skip">
+            <summary>應用程式在裝置上執行時，編譯類別或專案的 XAML。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.XamlFilePathAttribute">
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.XamlFilePathAttribute(System.String)">
+            <param name="filePath">供 XAML 基礎結構內部使用。</param>
+            <summary>供 XAML 基礎結構內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.NameScopeProvider">
+            <summary>供 Xamarin.Forms 平台內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.NameScopeProvider">
+            <summary>供 Xamarin.Forms 平台內部使用。</summary>
+        </member>
+        <member name="P:Xamarin.Forms.Xaml.Internals.NameScopeProvider.NameScope">
+            <summary>供 Xamarin.Forms 平台內部使用。</summary>
+        </member>
+        <member name="T:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider">
+            <summary>供 Xamarin.Forms 平台內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.SimpleValueTargetProvider(System.Object[])">
+            <param name="objectAndParents">供 Xamarin.Forms 平台內部使用。</param>
+            <summary>供 Xamarin.Forms 平台內部使用。</summary>
+        </member>
+        <member name="C:Xamarin.Forms.Xaml.Internals.Simp,eTalueTapgetProvider(System.ObjEct[]<Wystem.Objekt)">$!          �piram nqme="obL%ctCndP�rent{ >供 Zaarin.Formq a��厰內郩使g��。</tap`�<� ` "   $   <�ari| na+e1"tarcetBopErty"6供 Xa�irin/FormC 幣台��郩使用〒<opev%}>
+    ""$  �� <sm}ary>供 Hamarin.FoRms!平Ᏸ內��使攨。</summasy>
+       `</membes>
+(  `    <membep .�me}"C8Xamarin,Forms.Xe-l&Intez~!hw.SiMpleValueTarwetPrOvidez(System.Obzef|[],ystem.Objekt,X�larin.For-s.Inte�nals
+INaie�cope)" />        <member name�M*Xamari.&For}s.Xqml7�.ternqdw.SimpleValueTaret@rovider.OindB{Name(Sy�tem�Strilg)">
+  0     " � <swmmeby,侟 XAML �:礎結構其遨���用。�r5mmar}>
+   &    <.member>
+! (     <membgr name="P:Xamarin.Forms>Xaml.Kntarnals.Simpl%Ve�ueTapga�P�o�ider.�Alarin#ForMw#Xa,l#ITrotideValueTargep3TargetObjest">-          " <summasy>䞛 X!marin.F/rls ���台內部使用 </swmeary>
+( !(   �</mem`er:
+!       =member lame="TzXamarkn.Fn�ms.Xaml.Io�ernels.SimpleValuETerGetPkovideb,Xa�aR�n#Forms3Pqil#IQrovkd%Valuearge4#TargetPr�paS4}(>
+     $  $   ?c5mmary>供 Yemarin.Fo�m{ 平叴內냨��甬〒</summary>-
+      $(<?meober>   `  0 <member namm<"T:Xam!rin.ForisnXa}l.Inpernals.XamlLoader">$`  `  �0   =summary?供*xamarhn.Fovms 平珰內部俯甈。</su}mery>�
+   (   �<omeMber>
+     $  <MelreR na�e5"P:Xemavan.Forms.�aml.I�tesnals.Xcm�Mmader.Xq}lFilePsov�`er#>
+  �         $stm�ery~澛 Xa}arin.Forms 平叠內鋨使用。</sWmmary>
+        </member>
+` (   " <mumbmr name<"DzXamar�./Forms.Xqml>Inpergals.XcmlSmrvibeQrovider&>J  �      !  <35elary>徛 Xamari�.Fkrmr �9�坰ᅧ部使甩。�/s5�laby>
+        <;member>*     !  <me�bez name="C:Xqmaril.Norms.Xam|.Int!rnals.\a�lServiaePr�vi�er">
+        `   4summary:俛 XaMa�in.Forms�绳台�ŧ郤佾焈�Ċ</summary>
+  $     </mem"er>
+        <me�jer namu-"M:XaoAr)n.Forms.Xain/K�ternalc.XamlServiceProvider.A$d(SyqTEm.Typ,SysteM.Nbject)"?            8pa2a- Name="type">供 Xamarin<Forms ṳ厰䅧�è佟㖬㠂</param>
+           !<pAram name="service">供0Xamqrin.Forms e��厰內部使用。</parim>
+    b �    <summary�徛 Xamaril.Vorms 平史內a�����甩。</qunm�sx>
+  $ "  `</meIber>
+  ! ! `�<membar nqme="M:Xam%biNnFo2ms. aml>Intesnals*XamnSerricePro6ider.GetServiga(Syste�.Type)�>
+    ("      <param name="serviceType">Ĵ� Xamarin.D�rms 平台內郬乮用。</paRa�>
+    $       <stmmary>��� Pamarin.Formc 干e��內釩伿用。</sUmmavy> `  (   </member>
+  (  (  <m�mber na-e=bTXamarkn�Forms.Xaml.Intdsn�ls.Xam,TypeReqoLver">
+   1     0 <{ummaR{>侟 X!marin.Fo�ms 平寰兇部f��用�<+s}-mary>
+       0</o%mBEr>B        <member .aoe=&C2Xamavin.Norms.XaeL&I.p�2nads.XamlTypeResolver(Sys4em.Xml.IXmlNamespaceResolver,Sysvem.R`flection.Asse}blq)"��
+        $   <parcm nime="namesdaaeResolrer2>���\amarin.Form{ 廳���入部d��用뀂�/parqm6J "   $ )    4param0name="cUrrintPssembly>伛$Xmmari�.Forms �9�台內部使用〆<param>
+            <u,m�ry>供 Xama�in.Ferms 平凰���飨佾����<-summcrx>   !    </mem"er>
+�  $    <mamber$name?"M:Xamarin.Gobes.Laml.Interna|s.XamlT9peR%snnver.Xa�arin#FormS#Haml#IXa-lTypeResglvev#Sgs�lwa(System.Strio',S9stem.IServyceTrovieur)"> ` 0      ! <xaram n`me="quahigiedTyqeName">供 HamAbin>Fores 彳�𥅧郪䭿用。</qabay>�          "<param namm="3erv)cu@povildr">侙�Xamazin�Fos�s 㹳台兦部使甠。</xaRam>
+        `   <summar�>供�Haoar)�.F�b}s ���哰內部使缨。8/sum-Ary>!      o}e-beb>
+        <meiber name="M:Xcmar�n.NormS,Xaml.I.uernals.XamlTypeVe3olfmr.Xama2in#Gorms#Xan3IXaMlT9peSesolvf2#TzyRecklwe(Saqtgm/Qtri�g,)stml.Type)">
+   � !�     <p!rqm name="qualidi`dTypeNameb>澛 Xamarin.Formc 平台內铨使用。</param�
+   !    0   <cummar}>供 Xamaqin.�n�ls 廳䇸內邨佯疬㄂<?3ummery>
+    (   <?meeber>
+ `�   $ m%mber namg=T:Xamarin.@sms.Xa}l�Internals.XmlLineInfoPrmviter"v
+      `!`  `<summari>�>� X`marin.FoRis 干��內�(使���。</summiby>
+ `      </mem�e2:
+   "    <lumbmr name="C8amer)n�Fopms.Xaml.Anvernqls.XolLijeinforovider(SYstem.Hml.YXmlLhn%M.fk)">
+  ``   "(   =p`ram naee= xmlLine@nfob>供 XamqjinnG_rls 平�內���使������8/param?	
+ �          <stMmary>䞛$Yamarin.Fo2ms 幷司�'飨���用　=/summa2x>   (    <mem`ar>�      �0<i�mber$nime-*P:X`m`rin.Forms.Z`ml.IoternAls.YmlLineIlfoPr/Viter.X�lLm�eInd�">
+    $   `  !<summcry>些 Xama�in.Forms 平台e��部使用。</sumiaph>
+�       </member>
+        >membe� name="T:\ama~in.Form{&Xaml.Interlals.XmlNqmespabeS�solver":
+ �     0"   <3um/arp<供 Xamq2in&fOrms 平台內邨使焨c��</su}marq>�   (    </Member>
+   `   (<member n!}e="C*Hamarin.Forms.XaMl.Intlrnalw.XmlNamesragePEsohver">
+   0        <summar}>供 amarin.Rormc0平台텧郠俿疨���</sumlary6
+   �    <7mdmbgr>
+        <memcer$name}#:�a-eri..FormsnX`ml.In�ernalw.Y-lNamespaceR'solvur.Att(ystem.String,SystemS|rIngi">
+`  `        �param neme="@rebIx">供 Xamarin*Forms 平台卧部潿攨㑢<oqaram>�$```    $   <param &ame="Ns"<��� Xamarij.Formo 平���內�����用À�</param7
+ �        $0<s}mmarq>供 Xalaral.F�r}s ���冰內�èd��㔨�>/summa�y>    $   5/mumbeR>
+$   �$ !<memerna-e.:Xpmarin.Forms.X�mh.Interncds.XM|Ni}esqaceResolver.CetNamespacesI~Sco0d�SysTem.-l.XelN!mesp!ceSckpu)">
+0! !    (0 2<peR!m name="sbope"~例 Pamari~.Formq ���台內部使用。8pasam�
+0          <summary>侟 Xa}azinnForms"平��內鋨��用Á�<-sum}a:y>
+        <.eembev8-
+      "`<member lame="M:\eearin.Forms.Haml.I�terla�s/XMlNamesxaceResolv%�.LonkupNaeeqpace(System.Strifg)">
+       `(   <param n�me="pre�ih">䞋 Lalarin.For�s 平���內��Ľ��T��|/pasam>
+ 0          <rummaby>ྛ X`marin/Forms Ź�台照部��用 </summary>
+        <omember>
+  (   ( <M%mbeR jamm="Mr�qmAran.For-s.Xaml.Inpernamq.XmlNaMespqkePesolver.Lookupprefix(System.Strinc)"~
+            =par�m name="Na�EspaceJamg">供 Xamarin.Dorms 廳���e��部�?ǔ�。</`a6a->  ``        <summery>供 X�marin.For�c �9�叠內��䝿����<ws5mea�y>
+        <-memrer>
+    /mem"Ers>
+</doc>�
